@@ -1,0 +1,30 @@
+$bg-no-opacity:#a8aba4;
+$bg-w-opacity: #a8aba46e;
+$bg-on-hover: #f9fced;
+$primary-color:#f7ffd6;
+$description-color:  rgb(51, 49, 49);
+$border-main: 2px solid #f7ffd6;
+$shadow: 6px 6px 10px 0 rgba(92, 91, 91, 0.25),
+-6px -6px 10px 0 rgba(255, 255, 255, 0.3);
+$m-main: 10px;
+$p-main: 10px;
+$font-size-big: 2px;
+
+
+@mixin bg-image-basic () {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin flex-center () {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin animation-right () {
+    opacity: 1; 
+    transform: translateX(0%);      
+    transition: all 1s ease-out; 
+}

@@ -1,23 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700;900&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Grid Design Studio */
-body {
-    font-family: 'Maven Pro', sans-serif;
-    /* background-color: rgb(236, 235, 235); */
-    background-color: #a8aba4;
-    color: #f7ffd6;
-    font-weight: 400;
-  
-    
-}
-
-
+@import "./variables";
+@import "./basic";
 
 .container-main-hidden {
     width: 100vw;
@@ -25,20 +7,21 @@ body {
     height: auto;
     position: relative;
     top: 100vh;
-    background-color: #a8aba46e;
-     
-   
-}
-.flip-container {
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(22, 1fr);
-    grid-template-rows: repeat(16, 1fr); 
+    background-color: $bg-w-opacity;
     
     
 }
 
-.container-one {
+.flip-container {
+    position: relative;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(22, 1fr);
+    grid-template-rows: repeat(16, 1fr); 
+    background-color: $bg-w-opacity;
+}
+
+.container-one-fixed {
     width: 100%;
     height: 100%;
     display: grid;
@@ -46,203 +29,136 @@ body {
     grid-template-rows: repeat(16, 1fr);  
     position: fixed;
     top: 0;
-    z-index: -2;
+  
+    .title {
+        grid-area: 5/8/7/21;
+        color: $primary-color;
+        font-size: 6rem;
+        letter-spacing: 1rem;
+        opacity: 0; 
+        transform: translateX(100%);      
+        transition: all 1s ease-out;
+    }
+    .profession {
+        grid-area: 7/8/8/21;
+        border-top: $border-main;
+        color: $primary-color;
+        font-size: 3.6rem;
+        opacity: 0; 
+        transform: translateX(100%);      
+        transition: all 1s ease-out;
+    }
+    .projects {
+        grid-area: 7/8/8/21;
+        border-top: 2px solid  #f7ffd6;
+        color: #f7ffd6;
+        font-size: 3.6rem;
+        opacity: 1; 
+        transform: translateY(0%);      
+        transition: all 0.6s ease-out;
+    }
+    &:hover .title{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    &:hover .profession{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    &:hover .projects{
+        transform: translateY(300%);
+        opacity: 0;
+    }
+    .card-image {
+        grid-area: 5/3/12/7; 
+        width: auto;
+        min-width: 150px;
+        @include flex-center;
+        border: $border-main;
+        margin: $m-main;
+        padding: $p-main;
+        background-color: $bg-no-opacity;
+        box-shadow: $shadow;
+        transition:all 0.5s ease-in-out;
+    }
+    .my-img {
+        background-image: url(../../images/my-img2.jpg); 
+        @include bg-image-basic;
+        width: 100%;
+        height: 90%;
+    }
+    .name {
+        margin-top: $m-main;
+        grid-area: 6/3/7/6;
+        color: $primary-color;
+        font-size: 1.4rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .line1 {
+        grid-area: 1/5/5/6; 
+        border-left: $border-main;
+    }
+    .line2 {
+        grid-area: 12/5/22/6; 
+        border-left: $border-main;
+        writing-mode: vertical-rl;
+        text-orientation:sideways;
+        width: fit-content;
+        text-align:center;
+    }
+    .heading {
+        text-align: center;
+        color: $primary-color;
+        font-size: 2rem;
+        line-height: 150px;
+    }
     
-}
+    .about {
+        background-image: url(../../images/item-two.jpeg); 
+        grid-area: 1/6/4/10;
+        opacity: 1; 
+        transform: translateX(0%);      
+        transition: all 1s ease-out; 
+    }
 
-.line1 {
-    grid-area: 1/5/5/6; 
-    border-left: 2px solid  #f7ffd6;
-}
-
-.line2 {
-    grid-area: 12/5/22/6; 
-    border-left: 2px solid  #f7ffd6;
-    writing-mode: vertical-rl;
-    text-orientation:sideways;
-    width: fit-content;
-    text-align:center;
-}
-
-.card-image {
-    grid-area: 5/3/12/7; 
-    width: auto;
-    min-width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #f7ffd6;
-    margin: 10px;
-    padding: 10px;
-    background-color: #a8aba4;
-    box-shadow: 
-    6px 6px 10px 0 rgba(92, 91, 91, 0.25),
-    -6px -6px 10px 0 rgba(255, 255, 255, 0.3);
- 
-    transition:all 0.5s ease-in-out;
    
-}
-.my-img {
-    background-image: url(../../images/my-img2.jpg); 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 90%;
-}
-
-.name {
-    margin-top: 10px;
-    grid-area: 6/3/7/6;
-    color: #f7ffd6;
-    font-size: 1.4rem;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.title {
-    grid-area: 5/8/7/21;
     
-    color: #f7ffd6;
-    font-size: 6rem;
-    letter-spacing: 1rem;
-    opacity: 1; 
-    transform: translateX(0%);      
-    transition: all 1s ease-out;
-    
-    
+    .skills {
+        background-image: url(../../images/item-three.jpeg); 
+        grid-area: 3/16/6/22;
+        opacity: 1; 
+        transform: translateX(0%);      
+        transition: all 1s ease-out; 
+    }
+    .contact {
+        background-image: url(../../images/item-four.jpeg);
+        grid-area: 13/16/17/22;
+        opacity: 1; 
+        transform: translateX(0%);      
+        transition: all 1s ease-out; 
+    }
 }
 
-.container-main-hidden:hover .title{
-    transform: translateX(100%);
-    opacity: 0;
-}
-
-.profession {
-    grid-area: 7/8/8/21;
-    border-top: 2px solid  #f7ffd6;
-    color: #f7ffd6;
-    font-size: 3.6rem;
-    opacity: 1; 
-    transform: translateX(0%);      
-    transition: all 1s ease-out; 
-}
-
-.container-main-hidden:hover .profession{
-    transform: translateX(100%);
-    opacity: 0;
-}
-
-.projects {
-    grid-area: 7/8/8/21;
-    border-top: 2px solid  #f7ffd6;
-    color: #f7ffd6;
-    font-size: 3.6rem;
-    opacity: 0; 
-    transform: translateY(300%);      
-    transition: all 0.6s ease-out;
-}
-
-.container-main-hidden:hover .projects{
-    transform: translateY(0%);
-    opacity: 1;
-}
-
-.text {
-    text-align: center;
-    color: #f7ffd6;
-    font-size: 2rem;
-    line-height: 150px;
-}
-
-.item {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color:#f7ffd6;
-   /*  border: 2px solid #f7ffd6; */
-    width: 100%;
-    box-shadow: 
-    6px 6px 10px 0 rgba(92, 91, 91, 0.25),
-    -6px -6px 10px 0 rgba(255, 255, 255, 0.3);
-   
-    transition:all 0.5s ease-in-out;
-}
-
-
-
-.item:hover{
-    background-color: #f9fced;
-    color: rgb(255, 0, 157);
-    color: rgb(51, 49, 49);
-    /* box-shadow: 
-    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.3),
-    inset 6px 6px 10px 0 rgba(92, 91, 91, 0.25);  */
-} 
-.description {
-    display: none;
-    padding: 10px;
-    text-align: center;
-}
-.item1:hover .description {
-    display: block;
-    
-}
-.item2:hover .description{
-    display: block;
-   
-}
-.item3:hover .description{
-    display: block;
-    
-}
-.item1:hover .text {
-    display: none;
-}
-.item2:hover .text {
-    display: none;
-}
-.item3:hover .text {
-    display: none;
-}
-
-.item1 {
-    background-image: url(../../images/item-two.jpeg); 
-    grid-area: 1/6/4/10;
-    
-}
-.item1:hover,
-.item2:hover,
-.item3:hover {
-    background-image: none;
-
-}
-
-.item2 {
-    background-image: url(../../images/item-three.jpeg); 
-    grid-area: 3/16/6/22;
-}
-
-.item3 {
-    background-image: url(../../images/item-four.jpeg);
-    grid-area: 13/16/17/22;
-}
 
 
 .item {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color:#f7ffd6;
-   /*  border: 2px solid #f7ffd6; */
+    @include bg-image-basic;
+    background-color: $primary-color;
     width: 100%;
-    box-shadow: 
-    6px 6px 10px 0 rgba(92, 91, 91, 0.25),
-    -6px -6px 10px 0 rgba(255, 255, 255, 0.3);
-    
-    transition:all 0.5s ease-in-out;
+    box-shadow: $shadow;
+   /*  transition:all 0.5s ease-in-out; */
+    /*  border: 2px solid #f7ffd6; */
+    &:hover{
+        background-color: $bg-on-hover;
+        color: $description-color;
+        /* box-shadow: 
+        inset -6px -6px 10px 0 rgba(255, 255, 255, 0.3),
+        inset 6px 6px 10px 0 rgba(92, 91, 91, 0.25);  */
+    } 
 }
+
+
 
 .item4 {
     /* background-image: url(./images/item-five.jpeg); */
@@ -312,7 +228,10 @@ input[type="submit"] {
 
 
 
-
+.flip-container {
+    z-index: 10;
+   
+}
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
@@ -384,7 +303,7 @@ a:hover{
 } 
 
 @media screen and (max-width:768px) {
-    .container-one {
+    .container-one-fixed {
         display: flex;  
         flex-direction: column;
         position: fixed;
@@ -412,7 +331,7 @@ a:hover{
         text-align: center;
     }
    
-    .item1, .item2, .item3 {
+    .about, .skills, .contact {
         margin: 10px;
         width: 300px;
         max-width: 400px;
@@ -421,15 +340,15 @@ a:hover{
         transform: translateX(0%);      
         transition: all 1s ease-out; 
     }
-    .container-main-hidden:hover .item1{
+    .container-main-hidden:hover .about{
         transform: translateX(-100%);
         opacity: 0;
     }
-    .container-main-hidden:hover .item2{
+    .container-main-hidden:hover .skills{
         transform: translateX(100%);
         opacity: 0;
     }
-    .container-main-hidden:hover .item3{
+    .container-main-hidden:hover .contact{
         transform: translateX(-100%);
         opacity: 0;
     }
@@ -459,3 +378,38 @@ a:hover{
 
 }
 
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #f7ffd6;
+  }
+  
+  .about:hover .overlay {
+    opacity: 1;  
+  }
+  .skills:hover .overlay{
+    opacity: 1;  
+  }
+  .contact:hover .overlay{
+    opacity: 1;  
+  }
+  
+  .description {
+    color: grey;
+    font-size: 0.8rem;
+    position: absolute;
+    text-align: center;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    
+  }
