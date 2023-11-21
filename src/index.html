@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Irina Portfolio</title>
     <link rel="stylesheet" href="./styles/main.scss" />
+    <script
+      src="https://kit.fontawesome.com/b4dedb8623.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container-main-hidden">
+      <!-- First page -->
       <div class="container-one-fixed">
         <div class="card-image">
           <div class="my-img"></div>
@@ -18,10 +23,9 @@
         <div class="line2">Scroll for Projects</div>
         <div class="title">Portfolio</div>
         <div class="profession">Web Developer</div>
-        <div class="projects">Projects</div>
 
         <div class="item about">
-          <h2>About me</h2>
+          <h2 class="center">About me</h2>
           <div class="overlay">
             <div class="description">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -32,7 +36,7 @@
           </div>
         </div>
         <div class="item skills">
-          <h2>Skills</h2>
+          <h2 class="center">Skills</h2>
           <div class="overlay">
             <div class="description">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -43,134 +47,169 @@
           </div>
         </div>
         <div class="item contact">
-          <h2>Contact</h2>
-          <div class="overlay">
-            <div class="description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Obcaecati iste optio, eligendi eius tempora, nisi numquam dolore
-              sunt, reprehenderit nostrum explicabo quasi. Perferendis, sunt.
-              Consequatur
+          <h2 class="center">Contact</h2>
+          <!-- Contact form -->
+          <div class="contact-form overlay">
+            <form>
+              <label for="fname"></label>
+              <input
+                type="text"
+                name="fname"
+                id="fname"
+                placeholder="Name"
+                style="height: 30px"
+              />
+
+              <label for="email"></label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                style="height: 30px"
+              />
+              <label for="phone"></label>
+              <input
+                type="number"
+                name="phone"
+                id="phone"
+                minlength="12"
+                placeholder="Contact number"
+                style="height: 30px"
+              />
+              <label for="text"></label>
+              <textarea
+                name="textarea"
+                id="text"
+                rows="4"
+                placeholder="Message"
+              ></textarea>
+              <input type="submit" value="Submit" />
+            </form>
+            <!-- Contact form end -->
+            <div class="icons">
+              <a
+                href="https://github.com/statuja"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/irina-khartanovich-28b41aa0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a
+                href="https://support.discord.com/hc/en-us/profiles/5845217097751"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-discord"></i
+              ></a>
+              <a
+                href="https://www.reddit.com/user/Conscious_Dot_424"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-reddit"></i
+              ></a>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Projects -->
       <div class="flip-container">
-        <!-- <div class="item item4 text">Project1</div> -->
-        <div
-          class="flip-card item4"
-          style="height: 178px; width: 290px"
-          id="newsize"
-        >
+        <div class="projects">Projects</div>
+        <div class="flip-card project1" style="height: 178px; width: 290px">
           <div class="flip-card-inner">
-            <div class="flip-card-front item item4">
+            <div class="flip-card-front item project1">
               <img
-                src="../images/item-five.jpeg"
-                alt=""
-                style="height: 178px; width: 290px"
-                id="newsize"
-              />
-              <h2 class="center">Project1</h2>
-            </div>
-            <div class="flip-card-back">
-              <h4>Architect & Engineer</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
-                sit saepe dolores beatae dolor.
-              </p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Joe Flip</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="item item5 text">Project2</div> -->
-        <div class="flip-card item5" style="height: 178px; width: 250px">
-          <div class="flip-card-inner">
-            <div class="flip-card-front item item5">
-              <img
-                src="../images/item-seven.jpeg"
-                alt=""
-                style="height: 178px; width: 250px"
-              />
-              <h2 class="center">Project2</h2>
-            </div>
-            <div class="flip-card-back">
-              <h4>Architect & Engineer</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
-                sit saepe dolores beatae dolor.
-              </p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Joe Flip</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!--  <div class="item item6 text">Project3</div> -->
-        <div class="flip-card item6" style="height: 178px; width: 250px">
-          <div class="flip-card-inner">
-            <div class="flip-card-front item item6">
-              <img
-                src="../images/item-nine.jpeg"
-                alt=""
-                style="height: 178px; width: 250px"
-              />
-              <h2 class="center">Project3</h2>
-            </div>
-            <div class="flip-card-back">
-              <h4>Architect & Engineer</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
-                sit saepe dolores beatae dolor.
-              </p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Joe Flip</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="item item7 text">Project3</div> -->
-        <div class="flip-card item7" style="height: 178px; width: 250px">
-          <div class="flip-card-inner">
-            <div class="flip-card-front item item7">
-              <img
-                src="../images/item-one.jpeg"
-                alt=""
-                style="height: 178px; width: 250px"
-              />
-              <h2 class="center">Project4</h2>
-            </div>
-            <div class="flip-card-back">
-              <h4>Architect & Engineer</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
-                sit saepe dolores beatae dolor.
-              </p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Joe Flip</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!--  <div class="item item8 text">Project3</div> -->
-        <div class="flip-card item8" style="height: 178px; width: 290px">
-          <div class="flip-card-inner">
-            <div class="flip-card-front item item8">
-              <img
-                src="../images/item-five.jpeg"
+                src="../images/project1.jpg"
                 alt=""
                 style="height: 178px; width: 290px"
               />
-              <h2 class="center">Project5</h2>
+              <h2 class="center">Project_1</h2>
+            </div>
+            <div class="flip-card-back">
+              <h4>my Norway</h4>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
+                sit saepe dolores beatae dolor.
+              </p>
+              <a
+                href=" https://statuja.github.io/my-norway/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >here</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card project2" style="height: 178px; width: 250px">
+          <div class="flip-card-inner">
+            <div class="flip-card-front item project2">
+              <img
+                src="../images/project5.jpg"
+                alt=""
+                style="height: 178px; width: 250px"
+              />
+              <h2 class="center">Project_2</h2>
+            </div>
+            <div class="flip-card-back">
+              <h4>Sunrise Retreat</h4>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
+                sit saepe dolores beatae dolor.
+              </p>
+              <a
+                href="https://peculiarguru.github.io/Sunrise-retreat-website"
+                target="_blank"
+                rel="noopener noreferrer"
+                >here</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card project3" style="height: 178px; width: 250px">
+          <div class="flip-card-inner">
+            <div class="flip-card-front item project3">
+              <img
+                src="../images/project3.png"
+                alt=""
+                style="height: 178px; width: 250px"
+              />
+              <h2 class="center">Project_3</h2>
+            </div>
+            <div class="flip-card-back">
+              <h4>Design Studio</h4>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
+                sit saepe dolores beatae dolor.
+              </p>
+              <a
+                href="https://github.com/FbW-E11/uib-layout-grid-design-studio-statuja"
+                target="_blank"
+                rel="noopener noreferrer"
+                >here</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card project4" style="height: 178px; width: 250px">
+          <div class="flip-card-inner">
+            <div class="flip-card-front item project4">
+              <img
+                src="../images/project2-1.jpg"
+                alt=""
+                style="height: 178px; width: 250px"
+              />
+              <h2 class="center">Project_4</h2>
             </div>
             <div class="flip-card-back">
               <h4>Architect & Engineer</h4>
@@ -180,39 +219,36 @@
                 sit saepe dolores beatae dolor.
               </p>
               <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Joe Flip</a
+                >here</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card project5" style="height: 178px; width: 290px">
+          <div class="flip-card-inner">
+            <div class="flip-card-front item project5">
+              <img
+                src="../images/project4.jpg"
+                alt=""
+                style="height: 178px; width: 290px"
+              />
+              <h2 class="center">Project_5</h2>
+            </div>
+            <div class="flip-card-back">
+              <h4>Architect & Engineer</h4>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Repudiandae reprehenderit tempora aspernatur fuga magnam aliquid
+                sit saepe dolores beatae dolor.
+              </p>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                >here</a
               >
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="form">
-      <form>
-        <label for="fname"></label>
-        <input type="text" name="fname" id="fname" placeholder="Name" />
-
-        <label for="email"></label>
-        <input type="email" name="email" id="email" placeholder="Email" />
-        <label for="phone"></label>
-        <input
-          type="number"
-          name="phone"
-          id="phone"
-          minlength="12"
-          placeholder="Contact number"
-        />
-        <label for="text"></label>
-        <textarea
-          name="textarea"
-          id="text"
-          rows="4"
-          placeholder="Message"
-        ></textarea>
-
-        <input type="submit" value="Submit" disabled />
-      </form>
     </div>
   </body>
 </html>

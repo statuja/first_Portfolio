@@ -2,25 +2,12 @@
 @import "./basic";
 
 .container-main-hidden {
-    width: 100vw;
-    min-height: 100vh;
     height: auto;
     position: relative;
-    top: 100vh;
-    background-color: $bg-w-opacity;
-    
-    
+    top: 100vh;  
 }
 
-.flip-container {
-    position: relative;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(22, 1fr);
-    grid-template-rows: repeat(16, 1fr); 
-    background-color: $bg-w-opacity;
-}
-
+/* First page */
 .container-one-fixed {
     width: 100%;
     height: 100%;
@@ -29,50 +16,90 @@
     grid-template-rows: repeat(16, 1fr);  
     position: fixed;
     top: 0;
-  
     .title {
         grid-area: 5/8/7/21;
         color: $primary-color;
+        border-bottom: $border-main;
         font-size: 6rem;
         letter-spacing: 1rem;
-        opacity: 0; 
-        transform: translateX(100%);      
+        @include animation-X100-0;
         transition: all 1s ease-out;
+    }
+    &:hover .title{
+        @include animation-X0-1;
     }
     .profession {
         grid-area: 7/8/8/21;
-        border-top: $border-main;
         color: $primary-color;
+        
         font-size: 3.6rem;
-        opacity: 0; 
-        transform: translateX(100%);      
+        @include animation-X100-0;
         transition: all 1s ease-out;
     }
-    .projects {
-        grid-area: 7/8/8/21;
-        border-top: 2px solid  #f7ffd6;
-        color: #f7ffd6;
-        font-size: 3.6rem;
-        opacity: 1; 
-        transform: translateY(0%);      
-        transition: all 0.6s ease-out;
-    }
-    &:hover .title{
-        transform: translateX(0%);
-        opacity: 1;
-    }
     &:hover .profession{
-        transform: translateX(0%);
-        opacity: 1;
+        @include animation-X0-1;
     }
-    &:hover .projects{
-        transform: translateY(300%);
+    .about {
+        grid-area: 1/6/4/11;
+        background-image: linear-gradient(
+            180deg,
+            rgba(#a89e97c7, 0.212),
+            rgba(#554e4991, 0.212)
+          ),
+          url(../../images/about.jpg);
+     
+        @include animation-X0-1;
+        transition: all 1s ease-out; 
+    }
+    .skills {
+        grid-area: 2/16/6/22;
+
+        background-image: linear-gradient(
+            180deg,
+            rgba(#a89e97bb, 0.212),
+            rgba(#97827291, 0.212)
+          ),
+          url(../../images/dev-skills.jpg);
+          
+        
+        @include animation-X0-1;
+        transition: all 1s ease-out; 
+    }
+    .contact {
+        grid-area: 12/16/17/22;
+
+        background-image: linear-gradient(
+            180deg,
+            rgba(#a89e97bb, 0.212),
+            rgba(#97827291, 0.212)
+          ),
+          url(../../images/contact.jpg);
+       
+        @include animation-X0-1;      
+        transition: all 1s ease-out; 
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
         opacity: 0;
-    }
-    .card-image {
-        grid-area: 5/3/12/7; 
+        transition: 0.5s ease;
+        background-color: $primary-color;
+      }
+      .about:hover .overlay, 
+      .skills:hover .overlay,
+      .contact:hover .overlay
+      {
+        opacity: 1;  
+      }
+      .card-image {
+        grid-area: 5/3/13/7; 
         width: auto;
-        min-width: 150px;
+        min-width: 300px;
         @include flex-center;
         border: $border-main;
         margin: $m-main;
@@ -89,9 +116,8 @@
     }
     .name {
         margin-top: $m-main;
-        grid-area: 6/3/7/6;
         color: $primary-color;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         text-align: center;
         text-transform: uppercase;
     }
@@ -100,316 +126,290 @@
         border-left: $border-main;
     }
     .line2 {
-        grid-area: 12/5/22/6; 
+        grid-area: 13/5/22/6; 
         border-left: $border-main;
+        padding-left: 5px;
         writing-mode: vertical-rl;
         text-orientation:sideways;
+        font-size: 1.2rem;
         width: fit-content;
         text-align:center;
+        &::after{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900; 
+            content: "\f061";
+            margin-top: 10px;
+        } 
+    }  
+    /* Contact form */
+    .contact-form {
+        display: flex;
+        padding: $p-main;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        position: absolute;
+        padding-top: $p-main;
+        
+        color:$description-color;
     }
-    .heading {
-        text-align: center;
-        color: $primary-color;
-        font-size: 2rem;
-        line-height: 150px;
+    form {
+        display: block;
+        width: 300px;
+       
     }
-    
-    .about {
-        background-image: url(../../images/item-two.jpeg); 
-        grid-area: 1/6/4/10;
-        opacity: 1; 
-        transform: translateX(0%);      
-        transition: all 1s ease-out; 
+    input[type="text"], input[type="email"],textarea{
+        display: block; 
+        width: 100%; 
+        padding: 5px; 
+        margin: 8px auto; 
+        transition: all 0.3s ease-in;
     }
-
+    input[type="email"] {
+        height: 20px;
+    }
    
     
-    .skills {
-        background-image: url(../../images/item-three.jpeg); 
-        grid-area: 3/16/6/22;
-        opacity: 1; 
-        transform: translateX(0%);      
-        transition: all 1s ease-out; 
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    textarea:focus{
+        border: 0;
+        outline: 2px solid $secondary-color;
+       
     }
-    .contact {
-        background-image: url(../../images/item-four.jpeg);
-        grid-area: 13/16/17/22;
-        opacity: 1; 
-        transform: translateX(0%);      
-        transition: all 1s ease-out; 
+    input[type="submit"] {
+        display: block; 
+        width: 150px; 
+        padding: 12px 40px; 
+        margin: 5px auto; 
+        border-radius: 6px;
+        border: none;
+        background-color: $secondary-color;
+        font-size: 1rem;
+        transition: all 0.4s linear;
+        &:hover {
+          color: #f7ffd6;
+          transform: scale(1.1);
+        }
     }
-}
-
-
-
-.item {
-    @include bg-image-basic;
-    background-color: $primary-color;
-    width: 100%;
-    box-shadow: $shadow;
-   /*  transition:all 0.5s ease-in-out; */
-    /*  border: 2px solid #f7ffd6; */
-    &:hover{
-        background-color: $bg-on-hover;
-        color: $description-color;
-        /* box-shadow: 
-        inset -6px -6px 10px 0 rgba(255, 255, 255, 0.3),
-        inset 6px 6px 10px 0 rgba(92, 91, 91, 0.25);  */
-    } 
-}
-
-
-
-.item4 {
-    /* background-image: url(./images/item-five.jpeg); */
-    grid-area: 9/10/13/13;
-}
-
-
-.item5 {
-    /* background-image: url(./images/item-seven.jpeg); */
-    grid-area: 12/13/15/16;
-}
-
-.item6 {
-    /* background-image: url(./images/item-nine.jpeg); */
-    grid-area: 8/14/11/17;
-}
-.item7 {
-    /* background-image: url(./images/item-nine.jpeg); */
-    grid-area: 13/10/16/12;
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+            padding: 0 10px;
+            color:$description-color;
+            font-size: 1.4rem;
+        }
+        a:hover {
+            color: $secondary-color;
+        }
+    }
     
 }
-
-.item8 {
-    /* background-image: url(./images/item-nine.jpeg); */
-    grid-area: 9/18/12/21;
-}
-
-
-
-
-#form{
-    width: auto;
-    height: auto;
-    border: 1px solid red;
-    display: none;
-}
-#form:hover {
-    display: block;
-}
-form{
-    display: block;
-    margin: 10px auto;
-    width: 90%;
-    
-
-}
-input{
-    display: inline-block; 
-    width: 100%;   
-}
- textarea {
-    display: inline-block; 
-    width: 60%;   
-}
-
-input:focus, textarea:focus{
-    border: 0;
-    outline: 2px solid blue;
-}
-
-input[type="submit"] {
-    display: block; 
-    width: 65px; 
-    margin: 8px auto; 
-}
-
-
-
-
-.flip-container {
-    z-index: 10;
-   
-}
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
-    background-color: transparent;
-   /*  width: 300px;
-    height: 200px; */
-   
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-  
-  /* This container is needed to position the front and back side */
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-  
-  /* Position the front and back side */
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-   
-    backface-visibility: hidden;
-}
-  
-  /* Style the front side (fallback if image is missing) */
-.flip-card-front {
-    background-color:  #a8aba4;
-    color: black;
-  }
-  
-  /* Style the back side */
-.flip-card-back {
-    background-color:#f7ffd6;
-    color: rgb(51, 49, 49);
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+/* First page end*/
 
 .center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #f7ffd6;
+    color: $secondary-color;
+    font-size: 2rem; 
+}
+  .description {
+    position: absolute;
+    text-align: center;
+    padding: $p-main;
+    color:$description-color;
+    font-size: 1rem;
+  }
+.item {
+    @include bg-image-basic;
+    background-color: $primary-color;
+    width: 100%;
+    height: 100%;
+    box-shadow: $shadow;
+}
+
+/* Projects */
+
+.flip-container {
+    width: 100vw;
+    
+    position: relative;
+    top: 100vh;
+    background-color: $bg-w-opacity;
+    display: grid;
+    grid-template-columns: repeat(22, 1fr);
+    grid-template-rows: repeat(16, 1fr); 
+    .projects {
+        grid-area: 7/10/8/23;
+        color:$primary-color;
+        font-size: 3.2rem;
+        border-top: $border-main;
+        opacity: 0; 
+        transform: translateY(-100%);      
+        transition: all 1s ease-out;
+    }
+    &:hover .projects{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    .project1 {
+        grid-area: 9/10/13/13;
+    }
+    .project2 {
+        grid-area: 12/13/15/16;
+    }
+    .project3 {
+        grid-area: 8/14/11/17;
+    }
+    .project4 {
+        grid-area: 13/10/16/12;
+    }
+    .project5 {
+        grid-area: 9/18/12/21;
+    }  
+    /* Flip-cards */
+
+    .flip-card {
+        background-color: transparent;
+        perspective: 1000px; 
+    }
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+   .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+    /* if image is missing) */
+    .flip-card-front {
+        background-color:  #a8aba4;
+        color: black;
+    }
+   .flip-card-back {
+        background-color: $primary-color;
+        color: $description-color;
+        transform: rotateY(180deg);
+    @include flex-col;
+        box-shadow: $shadow;
+        a {
+            text-decoration: none;
+            color:$secondary-color;
+        }
+        a:hover{
+            text-decoration:  underline 2px solid $secondary-color;
+        } 
+    }
     
 }
 
-a {
-    text-decoration: none;
-    color: rgb(51, 49, 49);
-  
-}
-
-a:hover{
-    text-decoration:  underline 3px solid rgb(51, 49, 49);
-} 
 
 @media screen and (max-width:768px) {
     .container-one-fixed {
+        padding: 10px;
         display: flex;  
         flex-direction: column;
-        position: fixed;
-        top: 0;
-        z-index: -2;
-       align-items: center;
+        align-items: center;
         justify-content: center;
+        .title {
+            font-size: 4rem;
+        }
+        .profession {
+            font-size: 2.5rem;
+        }
+        .about, .skills, .contact {
+            margin: 10px;
+            width: 400px;
+            height: 300px;
+            opacity: 0;
+            transform: translateX(-100%);      
+            transition: all 1s ease-out;
+        }
+        .skills{
+            transform: translateX(100%);
+        }
+        .contact{
+            height: 650px;
+        }
+        &:hover .about,
+        &:hover .skills,
+        &:hover .contact {
+           @include animation-X0-1
+        }
+        .card-image {
+            opacity: 0;
+            transition: all 1s ease-out;
+            transform: translateY(-300%)
+        }
+        &:hover .card-image {
+            @include animation-Y0-1;
+        }
+       
+        .line2 {
+            order: 3;
+            text-align: center;
+            writing-mode: horizontal-tb;
+            width: auto;
+            border: none;
+            transition: all 1s ease-out;
+            transform: translateY(100%);
+            opacity: 0;
+            &::after{
+                font-family: "Font Awesome 5 Free"; 
+                font-weight: 900; 
+                content: "\f063";
+                margin-left: 5px;
+            } 
+        }
+        &:hover .line2{
+            @include animation-Y0-1;
+        }
+        .title {
+            width: auto;
+            font-size: 2.6rem;
+            text-align: center;
+            padding: 20px;
+        }
+        .profession {
+            font-size: 2rem;
+            text-align: center;
+        }
     }
-    .line2 {
-        order: 3;
-        text-align: center;
-        writing-mode:horizontal-tb;
-        width: auto;
-        line-height: auto;
-    }
-    .title {
-        width: auto;
-        font-size: 2.6rem;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .profession {
-        font-size: 2rem;
-        text-align: center;
-    }
-   
-    .about, .skills, .contact {
-        margin: 10px;
-        width: 300px;
-        max-width: 400px;
-        border: 2px solid #f7ffd6;
-        opacity: 1; 
-        transform: translateX(0%);      
-        transition: all 1s ease-out; 
-    }
-    .container-main-hidden:hover .about{
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    .container-main-hidden:hover .skills{
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    .container-main-hidden:hover .contact{
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-
-    .container-main-hidden{
-        display: flex;
-        flex-direction: column; 
-    }
- 
+    
    .flip-container {
-    display: flex;
-    height: 80vh;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background-color: #a8aba44f;
+    padding: $p-main;
+    @include flex-center;
+    width: 100%;
+    top: 10px;
+    .flip-card {
+        margin: 7px;
+       }
+    .projects {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        width: 500px !important;
+        height: 60px !important;
+        text-align: center;
+    }
    }
    .flip-container *{
-    width: 300px !important;
-    height: 150px !important;
+    width: 320px !important;
+    height: 160px !important;
    }
-   .flip-card {
-    margin: 10px;
-   }
-
-
 }
 
-
-
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #f7ffd6;
-  }
-  
-  .about:hover .overlay {
-    opacity: 1;  
-  }
-  .skills:hover .overlay{
-    opacity: 1;  
-  }
-  .contact:hover .overlay{
-    opacity: 1;  
-  }
-  
-  .description {
-    color: grey;
-    font-size: 0.8rem;
-    position: absolute;
-    text-align: center;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    
-  }
