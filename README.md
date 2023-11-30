@@ -19,3 +19,7 @@ This portfolio is a comprehensive showcase of the technologies I mastered at the
 ## Demo
 
 [Live Demo](https://statuja.github.io/first_Portfolio/)
+
+![about](/images/Screenshot01.png)
+![projects](/images/Screenshot-02.png)
+
